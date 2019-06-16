@@ -1,0 +1,9 @@
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\bin\Debug\netcoreapp2.2\Blog.Domen.deps.json
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\bin\Debug\netcoreapp2.2\Blog.Domen.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\bin\Debug\netcoreapp2.2\Blog.Domen.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\obj\Debug\netcoreapp2.2\Blog.Domen.csprojAssemblyReference.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\obj\Debug\netcoreapp2.2\Blog.Domen.csproj.CoreCompileInputs.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\obj\Debug\netcoreapp2.2\Blog.Domen.AssemblyInfoInputs.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\obj\Debug\netcoreapp2.2\Blog.Domen.AssemblyInfo.cs
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\obj\Debug\netcoreapp2.2\Blog.Domen.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Domen\obj\Debug\netcoreapp2.2\Blog.Domen.pdb

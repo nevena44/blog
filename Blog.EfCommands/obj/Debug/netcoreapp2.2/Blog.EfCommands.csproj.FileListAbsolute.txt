@@ -1,0 +1,16 @@
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.EfCommands.deps.json
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.EfCommands.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.EfCommands.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.Application.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.Domen.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.Application.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Blog.Domen.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.csprojAssemblyReference.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.csproj.CoreCompileInputs.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.AssemblyInfoInputs.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.AssemblyInfo.cs
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.csproj.CopyComplete
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.pdb

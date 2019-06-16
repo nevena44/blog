@@ -1,0 +1,16 @@
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Blog.Application.deps.json
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Blog.Application.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Blog.Application.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Blog.Domen.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Blog.Domen.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\obj\Debug\netcoreapp2.2\Blog.Application.csprojAssemblyReference.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\obj\Debug\netcoreapp2.2\Blog.Application.csproj.CoreCompileInputs.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\obj\Debug\netcoreapp2.2\Blog.Application.AssemblyInfoInputs.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\obj\Debug\netcoreapp2.2\Blog.Application.AssemblyInfo.cs
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\obj\Debug\netcoreapp2.2\Blog.Application.csproj.CopyComplete
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\obj\Debug\netcoreapp2.2\Blog.Application.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\obj\Debug\netcoreapp2.2\Blog.Application.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.Application\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Features.xml

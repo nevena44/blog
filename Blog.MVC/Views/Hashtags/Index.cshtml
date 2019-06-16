@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Blog.Application.DTO.Hashtag.HashtagDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var dto in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => dto.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => dto.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => dto.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => dto.ModifiedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => dto.IsDeleted)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=dto.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=dto.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=dto.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

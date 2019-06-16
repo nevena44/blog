@@ -1,0 +1,14 @@
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.deps.json
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\obj\Debug\netcoreapp2.2\Blog.EfDataAccess.csproj.CoreCompileInputs.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\obj\Debug\netcoreapp2.2\Blog.EfDataAccess.AssemblyInfoInputs.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\obj\Debug\netcoreapp2.2\Blog.EfDataAccess.AssemblyInfo.cs
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\obj\Debug\netcoreapp2.2\Blog.EfDataAccess.csprojAssemblyReference.cache
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.runtimeconfig.json
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.runtimeconfig.dev.json
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\bin\Debug\netcoreapp2.2\Blog.EfDataAccess.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\bin\Debug\netcoreapp2.2\Blog.Domen.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\bin\Debug\netcoreapp2.2\Blog.Domen.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\obj\Debug\netcoreapp2.2\Blog.EfDataAccess.csproj.CopyComplete
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\obj\Debug\netcoreapp2.2\Blog.EfDataAccess.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfDataAccess\obj\Debug\netcoreapp2.2\Blog.EfDataAccess.pdb
