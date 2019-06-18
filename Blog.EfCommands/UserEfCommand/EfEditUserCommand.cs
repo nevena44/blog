@@ -36,17 +36,11 @@ namespace Blog.EfCommands.UserEfCommand
                 throw new EntityNotFoundException("Role");
             }
 
-            if ((user.Any(u => u.Username.ToLower().Contains(request.Username.Trim().ToLower()))) && (!user.Any(u => u.Id == request.Id)))
+            if (!(user.Any(u => u.Username.ToLower()==request.Username.Trim().ToLower())) && (user.Any(u => u.Id == request.Id)))
             {
                 throw new EntityIsUniqueException("Username");
             }
 
-            if(user.Any(u => u.Username.ToLower().Contains(request.Username.Trim().ToLower())))
-            {
-                throw new EntityIsUniqueException("Username");
-            }
-
-            
             userEdit.FirstName = request.FirstName;
             userEdit.LastName = request.LastName;
             userEdit.Email = request.Email;

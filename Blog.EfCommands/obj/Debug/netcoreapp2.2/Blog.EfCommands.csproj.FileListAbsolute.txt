@@ -14,3 +14,7 @@ C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2
 C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.csproj.CopyComplete
 C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.dll
 C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\obj\Debug\netcoreapp2.2\Blog.EfCommands.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Abstractions.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Abstractions.xml
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.dll
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.EfCommands\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.xml

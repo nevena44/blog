@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Blog.Application.Commands.UserCommand;
 using Blog.Application.DTO.User;
+using Blog.Application.PageResponses;
 using Blog.Application.Searches;
 using Blog.EfDataAccess;
 using Microsoft.EntityFrameworkCore;
@@ -16,11 +17,11 @@ namespace Blog.EfCommands.UserEfCommand
         {
         }
 
-        public IEnumerable<UserDto> Execute(UserSearch request)
+        public PageResponse<UserDto> Execute(UserSearch request)
         {
             var user = Context.Users.Include(u => u.Role).AsQueryable();
 
-            if(request.FirstName != null)
+            if (request.FirstName != null)
             {
                 user = user.Where(u => u.FirstName.ToLower().Contains(request.FirstName.Trim().ToLower()));
             }
@@ -35,7 +36,7 @@ namespace Blog.EfCommands.UserEfCommand
                 user = user.Where(u => u.Username.ToLower().Contains(request.Username.Trim().ToLower()));
             }
 
-            if(request.RoleId != 0)
+            if (request.RoleId != 0)
             {
                 user = user.Where(u => u.RoleId == request.RoleId);
             }
@@ -49,19 +50,31 @@ namespace Blog.EfCommands.UserEfCommand
             {
                 user = user.Where(p => p.CreatedAt <= request.EndDate.Value);
             }
+            var totalCount = user.Count();
+            user = user.Skip((request.PageNumber - 1) * request.PerPage).Take(request.PerPage);
 
-            
+            var pageCount = (int)Math.Ceiling((double)totalCount / request.PerPage);
 
-            return user.Select(u => new UserDto
+            var response = new PageResponse<UserDto>
             {
-                Id = u.Id,
-                FirstName = u.FirstName,
-                LastName = u.LastName,
-                Username = u.Username,
-                Email = u.Email,
-                CreatedAt = u.CreatedAt,
-                RoleName = u.Role.Name
-            }).ToList();
-        }
+                TotalCount = totalCount,
+                PagesCount = pageCount,
+                CurrentPage = request.PageNumber,
+                Data = user.Select(u => new UserDto
+                {
+                    Id = u.Id,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Username = u.Username,
+                    Email = u.Email,
+                    CreatedAt = u.CreatedAt,
+                    RoleName = u.Role.Name
+                }).ToList()
+            };
+
+
+            return response;
+
+    }
     }
 }

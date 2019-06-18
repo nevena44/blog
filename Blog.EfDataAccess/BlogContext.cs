@@ -17,7 +17,7 @@ namespace Blog.EfDataAccess
         public DbSet<Hashtag> Hashtags { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-42PL9FK\NEVENASQLSERVER;Initial Catalog=NovaBazaBlog;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-42PL9FK\NEVENASQLSERVER;Initial Catalog=NajnovijaBazaBlog;Integrated Security=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

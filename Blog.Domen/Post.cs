@@ -11,7 +11,8 @@ namespace Blog.Domen
         public string Description { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        public ICollection<Picture> Pictures { get; set; }
+        public int PictureId { get; set; }
+        public Picture Picture { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<PostHashtag> PostHashtags { get; set; }
     }

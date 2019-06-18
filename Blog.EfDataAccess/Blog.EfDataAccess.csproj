@@ -9,6 +9,16 @@
     <Compile Remove="Migrations\20190609102351_Initial-Blog.Designer.cs" />
     <Compile Remove="Migrations\20190609102934_Initial-Blog.cs" />
     <Compile Remove="Migrations\20190609102934_Initial-Blog.Designer.cs" />
+    <Compile Remove="Migrations\20190614080346_Initial Blog.cs" />
+    <Compile Remove="Migrations\20190614080346_Initial Blog.Designer.cs" />
+    <Compile Remove="Migrations\20190617185831_Initial blog.cs" />
+    <Compile Remove="Migrations\20190617185831_Initial blog.Designer.cs" />
+    <Compile Remove="Migrations\20190618081154_new blog.cs" />
+    <Compile Remove="Migrations\20190618081154_new blog.Designer.cs" />
+    <Compile Remove="Migrations\20190618095743_initial blog.cs" />
+    <Compile Remove="Migrations\20190618095743_initial blog.Designer.cs" />
+    <Compile Remove="Migrations\20190618100522_initial blog.cs" />
+    <Compile Remove="Migrations\20190618100522_initial blog.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

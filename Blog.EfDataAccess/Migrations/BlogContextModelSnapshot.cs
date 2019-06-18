@@ -90,14 +90,10 @@ namespace Blog.EfDataAccess.Migrations
 
                     b.Property<DateTime?>("ModifiedAt");
 
-                    b.Property<int>("PostId");
-
                     b.Property<string>("Src")
                         .IsRequired();
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PostId");
 
                     b.ToTable("Pictures");
                 });
@@ -119,6 +115,8 @@ namespace Blog.EfDataAccess.Migrations
 
                     b.Property<DateTime?>("ModifiedAt");
 
+                    b.Property<int>("PictureId");
+
                     b.Property<string>("SubTitle")
                         .IsRequired();
 
@@ -128,6 +126,8 @@ namespace Blog.EfDataAccess.Migrations
                     b.Property<int>("UserId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PictureId");
 
                     b.HasIndex("UserId");
 
@@ -228,16 +228,13 @@ namespace Blog.EfDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Blog.Domen.Picture", b =>
-                {
-                    b.HasOne("Blog.Domen.Post", "Post")
-                        .WithMany("Pictures")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
             modelBuilder.Entity("Blog.Domen.Post", b =>
                 {
+                    b.HasOne("Blog.Domen.Picture", "Picture")
+                        .WithMany("Posts")
+                        .HasForeignKey("PictureId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Blog.Domen.User", "User")
                         .WithMany("Posts")
                         .HasForeignKey("UserId")

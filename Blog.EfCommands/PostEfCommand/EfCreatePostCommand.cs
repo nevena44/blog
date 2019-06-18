@@ -15,26 +15,29 @@ namespace Blog.EfCommands.PostEfCommand
         }
         public void Execute(CreatePostDto request)
         {
-            var post = new Domen.Post
+            var post = new Post
             {
 
                 Title = request.Title,
                 SubTitle = request.SubTitle,
                 Description = request.Description,
                 IsDeleted = false,
-                UserId = request.UserId
-
+                UserId = request.UserId,
+                PictureId = request.PictureId
+               
             };
+            var id = post.Id;
 
-            foreach(var id in request.HasTagIds)
+            foreach (var ids in request.HasTagIds)
             {
                 var vezna = new PostHashtag
                 {
-                    Post = post,
-                    HashtagId = id
+                    PostId = id,
+                    HashtagId = ids
                 };
             }
             Context.Posts.Add(post);
+           
 
             Context.SaveChanges();
         }

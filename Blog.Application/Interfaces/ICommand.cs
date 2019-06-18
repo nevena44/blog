@@ -9,8 +9,9 @@ namespace Blog.Application.Interfaces
         void Execute(TRequest request);
     }
 
-    public interface ICommand<TRequest, TResponse> where TResponse : class
+    public interface ICommand<TRequest, TResult>
     {
-        TResponse Execute(TRequest request);
+        TResult Execute(TRequest request);
+
     }
 }

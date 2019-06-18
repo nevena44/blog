@@ -11,8 +11,9 @@ namespace Blog.Application.DTO.Post
         public string SubTitle { get; set; }
         public string Description { get; set; }
         public string Username { get; set; }
+        public bool IsDeleted { get; set; }
         public List<HashtagItems> HashtagItems { get; set; }
         public List<CommentItems> CommentItems { get; set; }
-        public List<PictureItems> PictureItems { get; set; }
+        public string PictureItems { get; set; }
     }
 }

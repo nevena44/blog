@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Blog.Application.Commands.RoleCommand;
 using Blog.Application.DTO.Role;
+using Blog.Application.PageResponses;
 using Blog.Application.Searches;
 using Blog.EfDataAccess;
 
@@ -15,7 +16,7 @@ namespace Blog.EfCommands.RoleEfCommand
         {
         }
 
-        public IEnumerable<RoleDto> Execute(RoleSearch request)
+        public PageResponse<RoleDto> Execute(RoleSearch request)
         {
             var role = Context.Roles.AsQueryable();
 
@@ -24,14 +25,29 @@ namespace Blog.EfCommands.RoleEfCommand
                 role = role.Where(r => r.Name.ToLower().Contains(request.Name.Trim().ToLower()));
             }
 
-            return role.Select(x => new RoleDto {
-                Id = x.Id,
-                Name = x.Name,
-                CreatedAt = x.CreatedAt,
-                ModifiedAt = x.ModifiedAt,
-                IsDeleted = x.IsDeleted
-            }).Where(r => r.IsDeleted == false).ToList();
-            
+            var totalCount = role.Count();
+
+            role = role.Skip((request.PageNumber - 1) * request.PerPage).Take(request.PerPage);
+
+            var pageCount = (int)Math.Ceiling((double)totalCount / request.PerPage);
+
+            var response = new PageResponse<RoleDto> {
+                TotalCount = pageCount,
+                PagesCount = pageCount,
+                CurrentPage = request.PageNumber,
+                Data = role.Select(x => new RoleDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    CreatedAt = x.CreatedAt,
+                    ModifiedAt = x.ModifiedAt,
+                    IsDeleted = x.IsDeleted
+                }).ToList()
+        };
+
+
+            return response; 
+
         }
     }
 }

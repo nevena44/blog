@@ -12,5 +12,8 @@ namespace Blog.Application.Searches
         public string LastName { get; set; }
         public string Username { get; set; }
         public int RoleId { get; set; }
+
+        public int PerPage { get; set; } = 2;
+        public int PageNumber { get; set; } = 1;
     }
 }

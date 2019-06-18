@@ -4752,7 +4752,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
-          "Blog.EfDataAccess": "1.0.0"
+          "Blog.EfDataAccess": "1.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
         },
         "compile": {
           "bin/placeholder/Blog.Application.dll": {}

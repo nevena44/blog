@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Domen", "Blog.Domen\Blog.Domen.csproj", "{919DC4E5-6906-4B7F-B017-F9B17F9AB82B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Domen", "Blog.Domen\Blog.Domen.csproj", "{919DC4E5-6906-4B7F-B017-F9B17F9AB82B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.EfDataAccess", "Blog.EfDataAccess\Blog.EfDataAccess.csproj", "{F9918E9B-7863-4603-BFB0-31DD508D4BBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.EfDataAccess", "Blog.EfDataAccess\Blog.EfDataAccess.csproj", "{F9918E9B-7863-4603-BFB0-31DD508D4BBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Application", "Blog.Application\Blog.Application.csproj", "{F1804E08-B42F-46E6-8A58-CF51F406743F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Application", "Blog.Application\Blog.Application.csproj", "{F1804E08-B42F-46E6-8A58-CF51F406743F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.EfCommands", "Blog.EfCommands\Blog.EfCommands.csproj", "{1C7481E6-AFB0-4175-BBCE-FA4E9447663E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.EfCommands", "Blog.EfCommands\Blog.EfCommands.csproj", "{1C7481E6-AFB0-4175-BBCE-FA4E9447663E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.API", "Blog.API\Blog.API.csproj", "{F6FB3418-3021-45DF-AAD7-A41F81EEE1CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.API", "Blog.API\Blog.API.csproj", "{F6FB3418-3021-45DF-AAD7-A41F81EEE1CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.MVC", "Blog.MVC\Blog.MVC.csproj", "{FE603A87-4DAF-4D0A-9FEB-EBABD082CE52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.MVC", "Blog.MVC\Blog.MVC.csproj", "{FE603A87-4DAF-4D0A-9FEB-EBABD082CE52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Console", "Blog.Console\Blog.Console.csproj", "{47C0AA03-3EF8-473E-BCC7-57D4885AEF38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FE603A87-4DAF-4D0A-9FEB-EBABD082CE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE603A87-4DAF-4D0A-9FEB-EBABD082CE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE603A87-4DAF-4D0A-9FEB-EBABD082CE52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C0AA03-3EF8-473E-BCC7-57D4885AEF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C0AA03-3EF8-473E-BCC7-57D4885AEF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C0AA03-3EF8-473E-BCC7-57D4885AEF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C0AA03-3EF8-473E-BCC7-57D4885AEF38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

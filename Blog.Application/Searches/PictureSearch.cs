@@ -9,5 +9,8 @@ namespace Blog.Application.Searches
         public string Alt { get; set; }
 
         public int PostId { get; set; }
+
+        public int PerPage { get; set; } = 2;
+        public int PageNumber { get; set; } = 1;
     }
 }

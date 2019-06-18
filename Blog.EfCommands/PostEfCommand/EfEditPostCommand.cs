@@ -42,14 +42,14 @@ namespace Blog.EfCommands.PostEfCommand
             post.ModifiedAt = DateTime.Now;
             post.UserId = request.UserId;
 
-            foreach (var id in request.HasTagIds)
-            {
-                var vezna = new PostHashtag
-                {
-                    Post = post,
-                    HashtagId = id
-                };
-            }
+            //foreach (var id in request.HasTagIds)
+            //{
+            //    var vezna = new PostHashtag
+            //    {
+            //        Post = post,
+            //        HashtagId = id
+            //    };
+            //}
 
             Context.SaveChanges();
             

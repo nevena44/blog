@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blog.API</name>
+    </assembly>
+    <members>
+        <member name="M:Blog.API.Controllers.PostsController.Get(Blog.Application.Searches.PostSearch)">
+            <summary>
+            Get all Posts.
+            </summary>
+        </member>
+        <member name="M:Blog.API.Controllers.PostsController.Get(System.Int32)">
+            <summary>
+            Get a specific Post.
+            </summary>
+        </member>
+        <member name="M:Blog.API.Controllers.PostsController.Post(Blog.API.DTO.PostDtoNovo)">
+            <summary>
+            Create a specific Post.
+            </summary>
+        </member>
+        <member name="M:Blog.API.Controllers.PostsController.Put(System.Int32,Blog.API.DTO.PostDtoNovo)">
+            <summary>
+            Update a specific Post.
+            </summary>
+        </member>
+        <member name="M:Blog.API.Controllers.PostsController.Delete(System.Int32)">
+            <summary>
+            Deletes a specific Post.
+            </summary>
+        </member>
+    </members>
+</doc>

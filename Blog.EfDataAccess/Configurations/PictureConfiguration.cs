@@ -17,7 +17,7 @@ namespace Blog.EfDataAccess.Configurations
 
             builder.Property(p => p.CreatedAt).HasDefaultValueSql("GETDATE()");
 
-            builder.HasOne(p => p.Post).WithMany(ps => ps.Pictures).OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(p => p.Posts).WithOne(ps => ps.Picture).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

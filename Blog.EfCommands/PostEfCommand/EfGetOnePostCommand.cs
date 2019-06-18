@@ -38,11 +38,7 @@ namespace Blog.EfCommands.PostEfCommand
                 {
                     Description = c.Description
                 }).ToList(),
-                PictureItems = p.Pictures.Select(pc => new PictureItems
-                {
-                    Src = pc.Src,
-                    Alt = pc.Alt
-                }).ToList()
+                PictureItems = p.Picture.Src
             }).Where(p => p.Id == request).First();
         }
     }

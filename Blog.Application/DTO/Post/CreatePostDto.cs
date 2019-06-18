@@ -16,6 +16,8 @@ namespace Blog.Application.DTO.Post
         [Required]
         public string Description { get; set; }
         [Required]
+        public int PictureId { get; set; }
+        [Required]
         public int UserId { get; set; }
         public List<int> HasTagIds { get; set; }
 

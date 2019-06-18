@@ -21,3 +21,5 @@ C:\Users\nikola\source\repos\Blog.Projekat\Blog.API\bin\Debug\netcoreapp2.2\Blog
 C:\Users\nikola\source\repos\Blog.Projekat\Blog.API\obj\Debug\netcoreapp2.2\Blog.API.csproj.CopyComplete
 C:\Users\nikola\source\repos\Blog.Projekat\Blog.API\obj\Debug\netcoreapp2.2\Blog.API.dll
 C:\Users\nikola\source\repos\Blog.Projekat\Blog.API\obj\Debug\netcoreapp2.2\Blog.API.pdb
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.API\bin\Debug\netcoreapp2.2\Blog.API.xml
+C:\Users\nikola\source\repos\Blog.Projekat\Blog.API\obj\Debug\netcoreapp2.2\Blog.API.xml

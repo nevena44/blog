@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blog.Application.Commands.RoleCommand;
 using Blog.Application.DTO.Role;
+using Blog.Application.Exceptions;
+using Blog.Application.Helpers;
 using Blog.Application.Searches;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +32,7 @@ namespace Blog.API.Controllers
         }
 
         // GET: api/Roles
+        [LoggedIn]
         [HttpGet]
         public ActionResult<IEnumerable<RoleDto>> Get([FromQuery] RoleSearch search)
         {
@@ -37,6 +40,10 @@ namespace Blog.API.Controllers
             {
                 var roles = _getAllRole.Execute(search);
                 return Ok(roles);
+            }
+            catch (EntityNotFoundException e)
+            {
+                return NotFound(e.Message);
             }
             catch (Exception e)
             {
@@ -47,6 +54,7 @@ namespace Blog.API.Controllers
         }
 
         // GET: api/Roles/5
+        [LoggedIn]
         [HttpGet("{id}")]
         public ActionResult<RoleDto> Get(int id)
         {
@@ -54,6 +62,10 @@ namespace Blog.API.Controllers
             {
                 var role = _getOneRole.Execute(id);
                 return Ok(role);
+            }
+            catch (EntityNotFoundException e)
+            {
+                return NotFound(e.Message);
             }
             catch (Exception e)
             {
@@ -63,6 +75,7 @@ namespace Blog.API.Controllers
         }
 
         // POST: api/Roles
+        [LoggedIn("Admin")]
         [HttpPost]
         public ActionResult Post([FromBody] CreteRoleDto dto)
         {
@@ -70,6 +83,10 @@ namespace Blog.API.Controllers
             {
                 _createRole.Execute(dto);
                 return StatusCode(201);
+            }
+            catch (EntityNotFoundException e)
+            {
+                return UnprocessableEntity(e.Message);
             }
             catch (Exception e)
             {
@@ -79,6 +96,7 @@ namespace Blog.API.Controllers
         }
 
         // PUT: api/Roles/5
+        [LoggedIn("Admin")]
         [HttpPut("{id}")]
         public ActionResult<RoleDto> Put(int id, [FromQuery] RoleDto dto)
         {
@@ -88,6 +106,10 @@ namespace Blog.API.Controllers
                 _editRole.Execute(dto);
                 return NoContent();
             }
+            catch (EntityNotFoundException e)
+            {
+                return UnprocessableEntity(e.Message);
+            }
             catch (Exception)
             {
                 return StatusCode(500);
@@ -95,6 +117,7 @@ namespace Blog.API.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        [LoggedIn("Admin")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
@@ -102,6 +125,10 @@ namespace Blog.API.Controllers
             {
                 _deleteRole.Execute(id);
                 return NoContent();
+            }
+            catch (EntityNotFoundException e)
+            {
+                return UnprocessableEntity(e.Message);
             }
             catch (Exception e)
             {

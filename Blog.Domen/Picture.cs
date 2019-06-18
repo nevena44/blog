@@ -8,7 +8,6 @@ namespace Blog.Domen
     {
         public string Src { get; set; }
         public string Alt { get; set; }
-        public int PostId { get; set; }
-        public Post Post { get; set; }
+        public ICollection<Post> Posts { get; set; }
     }
 }

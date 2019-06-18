@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.Application.Commands.CommentCommand;
 using Blog.Application.Commands.HashtagCommand;
+using Blog.Application.Commands.PostCommand;
+using Blog.EfCommands.CommentCommand;
 using Blog.EfCommands.HashtagEfCommand;
+using Blog.EfCommands.PostEfCommand;
 using Blog.EfDataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +47,19 @@ namespace Blog.MVC
             services.AddTransient<ICreateHashtagCommand, EfCreateHashtagCommand>();
             services.AddTransient<IEditHashtagCommand, EfEditHashtagCommand>();
             services.AddTransient<IDeleteHashtagCommand, EfDeleteHashtagCommand>();
+
+            services.AddTransient<IGetPostCommandUnPagginate, EfGetPostCommandUnpagginate>();
+            services.AddTransient<IGetOnePostCommand, EfGetOnePostCommand>();
+            services.AddTransient<ICreatePostCommand, EfCreatePostCommand>();
+            services.AddTransient<IEditPostCommand, EfEditPostCommand>();
+            services.AddTransient<IDeletePostCommand, EfDeletePostCommand>();
+
+            services.AddTransient<IGetCommentCommandUnpagge, EfGetCommentCommandUnpagge>();
+            services.AddTransient<IGetOneCommentCommand, EfGetOneCommentCommand>();
+            services.AddTransient<ICreateCommentCommand, EfCreateCommentCommand>();
+            services.AddTransient<IEditCommentCommand, EfEditCommentCommand>();
+            services.AddTransient<IDeleteCommentCommand, EfDeleteCommentCommand>();
+
 
         }
 

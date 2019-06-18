@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Blog.API.Email;
+using Blog.Application;
+using Blog.Application.Commands;
+using Blog.Application.Commands.CommentCommand;
 using Blog.Application.Commands.HashtagCommand;
 using Blog.Application.Commands.PostCommand;
 using Blog.Application.Commands.RoleCommand;
 using Blog.Application.Commands.UserCommand;
+using Blog.Application.Helpers;
 using Blog.Application.Interfaces;
+using Blog.EfCommands;
+using Blog.EfCommands.CommentCommand;
 using Blog.EfCommands.HashtagEfCommand;
 using Blog.EfCommands.PostEfCommand;
 using Blog.EfCommands.RoleEfCommand;
@@ -15,12 +23,16 @@ using Blog.EfCommands.UserEfCommand;
 using Blog.EfDataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Blog.API
 {
@@ -36,6 +48,12 @@ namespace Blog.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<FormOptions>(x =>
+            {
+                x.ValueLengthLimit = int.MaxValue;
+                x.MultipartBodyLengthLimit = int.MaxValue; // In case of multipart
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<BlogContext>();
 
@@ -62,16 +80,62 @@ namespace Blog.API
             services.AddTransient<IEditUserCommand, EfEditUserCommand>();
             services.AddTransient<ICreateUserCommand, EfCreateUserCommand>();
             services.AddTransient<IDeleteUserCommand, EfDeleteUserCommand>();
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<ILoginCommand, EFLoginCommand>();
 
+            services.AddTransient<IGetCommentCommand, EfGetCommentCommand>();
+            services.AddTransient<IGetOneCommentCommand, EfGetOneCommentCommand>();
+            services.AddTransient<ICreateCommentCommand, EfCreateCommentCommand>();
+            services.AddTransient<IEditCommentCommand, EfEditCommentCommand>();
+            services.AddTransient<IDeleteCommentCommand, EfDeleteCommentCommand>();
+
+            services.AddTransient<ICreateImageCommand, EfCreatePictureCommand>();
+               
             var section = Configuration.GetSection("Email");
 
             var sender =
                 new SmtpEmailSender(section["host"], Int32.Parse(section["port"]), section["fromaddress"], section["password"]);
 
             services.AddSingleton<IEmailSender>(sender);
-        }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+               services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+
+            });
+
+            var key = Configuration.GetSection("Encryption")["key"];
+
+            var enc = new Encription(key);
+            services.AddSingleton(enc);
+
+            services.AddTransient(s => {
+                var http = s.GetRequiredService<IHttpContextAccessor>();
+                var value = http.HttpContext.Request.Headers["Authorization"].ToString();
+                var encryption = s.GetRequiredService<Encription>();
+
+                try
+                {
+                    var decodedString = encryption.DecryptString(value);
+                    decodedString = decodedString.Substring(0, decodedString.LastIndexOf("}") + 1);
+                    var user = JsonConvert.DeserializeObject<LoggedUser>(decodedString);
+                    user.IsLogged = true;
+                    return user;
+                }
+                catch (Exception)
+                {
+                    return new LoggedUser
+                    {
+                        IsLogged = false
+                    };
+                }
+            });
+
+        }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -87,6 +151,13 @@ namespace Blog.API
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseStaticFiles();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
         }
     }
 }

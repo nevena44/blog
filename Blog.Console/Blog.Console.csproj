@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.Application\Blog.Application.csproj" />
+    <ProjectReference Include="..\Blog.Domen\Blog.Domen.csproj" />
+    <ProjectReference Include="..\Blog.EfCommands\Blog.EfCommands.csproj" />
+    <ProjectReference Include="..\Blog.EfDataAccess\Blog.EfDataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

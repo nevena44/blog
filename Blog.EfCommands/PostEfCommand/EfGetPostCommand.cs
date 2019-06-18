@@ -1,5 +1,6 @@
 ﻿using Blog.Application.Commands.PostCommand;
 using Blog.Application.DTO.Post;
+using Blog.Application.PageResponses;
 using Blog.Application.Searches;
 using Blog.EfDataAccess;
 using Microsoft.EntityFrameworkCore;
@@ -15,12 +16,11 @@ namespace Blog.EfCommands.PostEfCommand
         public EfGetPostCommand(BlogContext context) : base(context)
         {
         }
-
-        public IEnumerable<PostDto> Execute(PostSearch request)
+        public PageResponse<PostDto> Execute(PostSearch request)
         {
             var posts = Context.Posts
-                .Include(p => p.PostHashtags)
-                .Include(p => p.User).AsQueryable();
+               .Include(p => p.PostHashtags)
+               .Include(p => p.User).AsQueryable();
 
             if (request.StartDate.HasValue)
             {
@@ -47,24 +47,35 @@ namespace Blog.EfCommands.PostEfCommand
                 posts = posts.Where(p => p.SubTitle.ToLower().Contains(request.SubTitle.Trim().ToLower()));
             }
 
-            return posts.Select(x => new PostDto {
-                  Id = x.Id,
-                  Title = x.Title,
-                  SubTitle = x.SubTitle,
-                  Description = x.Description,
-                  Username = x.User.Username,
-                  CommentItems = x.Comments.Select(c => new CommentItems {
-                      Description = c.Description
-                  }).ToList(),
-                  PictureItems = x.Pictures.Select(p => new PictureItems {
-                      Src = p.Src,
-                      Alt = p.Alt 
-                  }).ToList(),
-                  HashtagItems = x.PostHashtags.Select(ph => new HashtagItems
-                  {
-                      Name = ph.Hashtag.Name
-                  }).ToList()
-            }).ToList();
+            var totalCount = posts.Count();
+            posts = posts.Skip((request.PageNumber - 1) * request.PerPage).Take(request.PerPage);
+
+            var pageCount = (int)Math.Ceiling((double)totalCount / request.PerPage);
+
+            var response = new PageResponse<PostDto>
+            {
+                TotalCount = pageCount,
+                PagesCount = pageCount,
+                CurrentPage = request.PageNumber,
+                Data = posts.Select(x => new PostDto
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    SubTitle = x.SubTitle,
+                    Description = x.Description,
+                    Username = x.User.Username,
+                    CommentItems = x.Comments.Select(c => new CommentItems
+                    {
+                        Description = c.Description
+                    }).ToList(),
+                    PictureItems = x.Picture.Src,
+                    HashtagItems = x.PostHashtags.Select(ph => new HashtagItems
+                    {
+                        Name = ph.Hashtag.Name
+                    }).ToList()
+                }).Where(x => x.IsDeleted == false).ToList()
+            };
+            return response;
         }
     }
 }

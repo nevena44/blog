@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blog.Application.Commands.HashtagCommand;
 using Blog.Application.DTO.Hashtag;
+using Blog.Application.Exceptions;
+using Blog.Application.Helpers;
 using Blog.Application.Searches;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +32,7 @@ namespace Blog.API.Controllers
         }
 
         // GET: api/Hashtags
+        [LoggedIn]
         [HttpGet]
         public ActionResult<IEnumerable<HashtagDto>> Get([FromQuery] HashtagSearch search)
         {
@@ -37,6 +40,10 @@ namespace Blog.API.Controllers
             {
                 var hashtags = _getAllHashtag.Execute(search);
                 return Ok(hashtags);
+            }
+            catch (EntityNotFoundException e)
+            {
+                return NotFound(e.Message);
             }
             catch (Exception e)
             {
@@ -46,6 +53,7 @@ namespace Blog.API.Controllers
         }
 
         // GET: api/Hashtags/5
+        [LoggedIn]
         [HttpGet("{id}")]
         public ActionResult<HashtagDto> Get(int id)
         {
@@ -53,6 +61,10 @@ namespace Blog.API.Controllers
             {
                 var hashtag = _getOneHashtag.Execute(id);
                     return Ok(hashtag);
+            }
+            catch (EntityNotFoundException e)
+            {
+                return NotFound(e.Message);
             }
             catch (Exception e)
             {
@@ -62,6 +74,8 @@ namespace Blog.API.Controllers
         }
 
         // POST: api/Hashtags
+
+        [LoggedIn("Admin")]
         [HttpPost]
         public ActionResult Post([FromBody] CreateHashtagDto dto)
         {
@@ -70,6 +84,10 @@ namespace Blog.API.Controllers
                 _createHashtag.Execute(dto);
                 return StatusCode(201);
             }
+            catch (EntityNotFoundException e)
+            {
+                return UnprocessableEntity(e.Message);
+            }
             catch (Exception)
             {
                 return StatusCode(500);
@@ -77,6 +95,7 @@ namespace Blog.API.Controllers
         }
 
         // PUT: api/Hashtags/5
+        [LoggedIn("Admin")]
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] HashtagDto dto)
         {
@@ -87,6 +106,10 @@ namespace Blog.API.Controllers
                 _editHashtag.Execute(dto);
                 return NoContent();
             }
+            catch (EntityNotFoundException e)
+            {
+                return UnprocessableEntity(e.Message);
+            }
             catch (Exception)
             {
 
@@ -95,6 +118,7 @@ namespace Blog.API.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        [LoggedIn("Admin")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
@@ -102,6 +126,10 @@ namespace Blog.API.Controllers
             {
                 _deleteHashtag.Execute(id);
                 return NoContent();
+            }
+            catch (EntityNotFoundException e)
+            {
+                return UnprocessableEntity(e.Message);
             }
             catch (Exception)
             {
